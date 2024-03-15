@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctqn6l1nnlpbx"]
+
+[ext_resource type="Script" path="res://HeadTrackingHDK2/HeadTrackingHDK2.gd" id="1_4mjma"]
+
+[node name="HeadTrackingHDK2" type="Node"]
+script = ExtResource("1_4mjma")

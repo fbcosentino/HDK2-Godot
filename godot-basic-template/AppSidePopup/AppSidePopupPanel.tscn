@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6pvu2yj1ctld"]
+
+[ext_resource type="Script" path="res://AppSidePopup/AppSidePopupPanel.gd" id="1_rmlh8"]
+
+[node name="AppSidePopupPanel" type="ReferenceRect"]
+offset_right = 480.0
+offset_bottom = 320.0
+script = ExtResource("1_rmlh8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 144.0
+offset_bottom = 37.0
+text = "Headset screen:"
+
+[node name="BtnScreenNumber" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 17.0
+offset_right = 347.0
+offset_bottom = 37.0
+allow_reselect = true
+
+[node name="BtnHalfSize" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 60.0
+offset_right = 348.0
+offset_bottom = 91.0
+text = "Half size (for debug)"
+
+[node name="AimAlignment" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 117.0
+offset_right = 341.0
+offset_bottom = 133.0
+value = 26.0
+
+[node name="Label" type="Label" parent="AimAlignment"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -11.5
+offset_right = -36.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Aim Alignment"
+
+[node name="BtnTurnRotate" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 156.0
+offset_right = 348.0
+offset_bottom = 187.0
+text = "Side rotate 90 instead of strafe"
+
+[connection signal="item_selected" from="BtnScreenNumber" to="." method="_on_btn_screen_number_item_selected"]
+[connection signal="toggled" from="BtnHalfSize" to="." method="_on_btn_half_size_toggled"]
+[connection signal="value_changed" from="AimAlignment" to="." method="_on_aim_alignment_value_changed"]
+[connection signal="toggled" from="BtnTurnRotate" to="." method="_on_btn_turn_rotate_toggled"]

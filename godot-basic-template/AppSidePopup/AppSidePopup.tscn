@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://it6ujos1ipf5"]
+
+[ext_resource type="Script" path="res://AppSidePopup/AppSidePopup.gd" id="1_a0gam"]
+[ext_resource type="PackedScene" uid="uid://c6pvu2yj1ctld" path="res://AppSidePopup/AppSidePopupPanel.tscn" id="2_mlffu"]
+
+[node name="AppSidePopup2" type="Window"]
+handle_input_locally = false
+title = "HDK2"
+initial_position = 2
+size = Vector2i(480, 320)
+visible = false
+script = ExtResource("1_a0gam")
+
+[node name="AppSidePopupPanel" parent="." instance=ExtResource("2_mlffu")]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 476.0
+offset_bottom = 316.0
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

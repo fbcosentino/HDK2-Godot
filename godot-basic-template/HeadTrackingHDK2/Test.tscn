@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://c76mxvje37yih"]
+
+[ext_resource type="PackedScene" uid="uid://ctqn6l1nnlpbx" path="res://HeadTrackingHDK2/HeadTrackingHDK2.tscn" id="1_napps"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bf342"]
+size = Vector3(0.2, 0.12, 0.12)
+
+[sub_resource type="PrismMesh" id="PrismMesh_xxx41"]
+size = Vector3(0.1, 0.1, 0.03)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8m4y"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dedp7"]
+
+[sub_resource type="Sky" id="Sky_owcwg"]
+sky_material = SubResource("ProceduralSkyMaterial_dedp7")
+
+[sub_resource type="Environment" id="Environment_vmd7j"]
+background_mode = 2
+sky = SubResource("Sky_owcwg")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="HeadTrackingHDK2" parent="." node_paths=PackedStringArray("TargetNode") instance=ExtResource("1_napps")]
+TargetNode = NodePath("../Headset")
+
+[node name="Headset" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_bf342")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Headset"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0488958, 0)
+mesh = SubResource("PrismMesh_xxx41")
+surface_material_override/0 = SubResource("StandardMaterial3D_y8m4y")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164, 0.432)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vmd7j")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.609204, 0.727406, -0.315833, 0, 0.398269, 0.917269, 0.793013, -0.558804, 0.242627, 0, 0, 0)
